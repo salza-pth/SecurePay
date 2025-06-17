@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecurePay - Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">SecurePay</div>
+        <button class="menu-toggle" id="menuToggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <div class="nav-links">
+            <a href="index.html#home" class="nav-link">Home</a>
+            <a href="index.html#notifications" class="nav-link">Notification</a>
+            <a href="index.html#portfolio" class="nav-link">Portfolio</a>
+            <a href="profile.html" class="nav-link active">Profile</a>
+            <div class="user-info">
+                <span id="userEmail"></span>
+                <button id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <div class="profile-page">
+        <aside class="profile-sidebar">
+            <div class="profile-card">
+                <div class="profile-avatar"></div>
+                <div class="profile-info">
+                    <div id="profileName">Your name</div>
+                    <div id="profileEmail" class="profile-email">yourname@gmail.com</div>
+                </div>
+            </div>
+            <ul class="profile-menu">
+                <li class="profile-menu-item active" data-section="profile-detail"><span>👤</span> My Profile</li>
+                <li class="profile-menu-item" data-section="setting"><span>⚙️</span> Setting</li>
+                <li class="profile-menu-item" data-section="notification"><span>🔔</span> Notifications <span class="allow-label">Allow</span></li>
+                <li class="profile-menu-item" id="logoutProfile"><span>↩️</span> Log out</li>
+            </ul>
+            <div class="profile-setting-box hidden" id="settingBox">
+                <div class="setting-header">
+                    <span>Setting</span>
+                    <span class="close-setting" id="closeSetting">&times;</span>
+                </div>
+                <div class="setting-row">
+                    <span>Theme</span>
+                    <select id="themeSelect">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+                <div class="setting-row">
+                    <span>Language</span>
+                    <select id="langSelect">
+                        <option value="en">Eng</option>
+                        <option value="id">ID</option>
+                    </select>
+                </div>
+            </div>
+        </aside>
+        <main class="profile-main">
+            <div class="profile-detail-box" id="profile-detail">
+                <div class="profile-card profile-card-main">
+                    <div class="profile-avatar"></div>
+                    <div class="profile-info">
+                        <div id="profileNameMain">Your name</div>
+                        <div id="profileEmailMain" class="profile-email">yourname@gmail.com</div>
+                    </div>
+                    <span class="close-profile-detail" id="closeProfileDetail">&times;</span>
+                </div>
+                <form id="profileForm">
+                    <div class="profile-row">
+                        <label>Name</label>
+                        <input type="text" id="editName" placeholder="Your name">
+                    </div>
+                    <div class="profile-row">
+                        <label>Email account</label>
+                        <input type="email" id="editEmail" placeholder="yourname@gmail.com">
+                    </div>
+                    <div class="profile-row">
+                        <label>Password</label>
+                        <input type="password" id="editPassword" placeholder="Password">
+                    </div>
+                    <div class="profile-row">
+                        <label>Connected Account</label>
+                        <button type="button" class="connect-btn">&gt;</button>
+                    </div>
+                    <button type="submit" class="save-btn">Save</button>
+                </form>
+            </div>
+            <div class="profile-detail-box hidden" id="notification">
+                <h3>Notifications</h3>
+                <div class="notifications-box">
+                    <div class="notifications-container" id="profileNotificationsList"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!--Footer Start-->
+    <footer class="footer">
+        <div class="footer-content">
+            <span>© 2024 SecurePay. All rights reserved.</span>
+        </div>
+    </footer>
+    <!--Footer End-->
+
+    <script src="profile.js"></script>
+</body>
+</html>

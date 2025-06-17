@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecurePay - Secure Payment Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">SecurePay</div>
+        <button class="menu-toggle" id="menuToggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <div class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#statistics" class="nav-link auth-required hidden">Statistics</a>
+            <a href="#portfolio" class="nav-link auth-required hidden">Portfolio</a>
+            <a href="#notifications" class="nav-link auth-required hidden">Notifications</a>
+            <a href="profile.html" class="nav-link auth-required hidden">Profile</a>
+            <a href="#" class="nav-link" id="loginBtn">Login</a>
+            <a href="#" class="nav-link" id="registerBtn">Register</a>
+            <div class="user-info hidden">
+                <span id="userEmail"></span>
+                <button id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Secure Your Transactions with SecurePay</h1>
+                <p>“Secure your Transactions, Maintain
+                    Customer Trust!”
+                    SecurePay detects suspicious patterns
+                    in real-time to provide early warnings, 
+                    ensuring your business remains safe
+                    and secure.</p>
+                <button class="cta-button">Get Started</button>
+            </div>
+            <div class="hero-image">
+                <img src="image/securepay-hero.png" alt="SecurePay illustration" class="hero-illustration">
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="statistics" class="section auth-required hidden">
+        <h2>Transaction Statistics</h2>
+        <div class="stats-summary">
+            <div class="stat-box">
+                <h3>Total Transactions</h3>
+                <p id="totalTransactions">0</p>
+                <small>All time transactions</small>
+            </div>
+            <div class="stat-box">
+                <h3>Successful</h3>
+                <p id="successfulTransactions">0</p>
+                <small>Completed transactions</small>
+            </div>
+            <div class="stat-box">
+                <h3>Failed</h3>
+                <p id="failedTransactions">0</p>
+                <small>Declined transactions</small>
+            </div>
+            <div class="stat-box">
+                <h3>Fraud Detected</h3>
+                <p id="fraudTransactions">0</p>
+                <small>Suspicious activities</small>
+            </div>
+            <div class="stat-box">
+                <h3>Total Amount</h3>
+                <p id="totalAmount">Rp0</p>
+                <small>Total transaction value</small>
+            </div>
+            <div class="stat-box">
+                <h3>Average Amount</h3>
+                <p id="averageAmount">Rp0</p>
+                <small>Average per transaction</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section auth-required hidden">
+        <h2>Transaction Portfolio</h2>
+        <div class="transaction-form">
+            <div class="custom-dropdown" id="customDropdown">
+                <button type="button" class="dropdown-toggle" id="dropdownToggle">
+                    <span id="selectedMethod">Select Payment Method</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <div class="dropdown-option" data-value="Visa">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa">
+                        <span>Visa</span>
+                    </div>
+                    <div class="dropdown-option" data-value="Mastercard">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+                        <span>MasterCard</span>
+                    </div>
+                    <div class="dropdown-option" data-value="GoPay">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg" alt="GoPay">
+                        <span>GoPay</span>
+                    </div>
+                    <div class="dropdown-option" data-value="OVO">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg" alt="OVO">
+                        <span>OVO</span>
+                    </div>
+                    <div class="dropdown-option" data-value="ShopeePay">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg" alt="ShopeePay">
+                        <span>ShopeePay</span>
+                    </div>
+                    <div class="dropdown-option" data-value="DANA">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA">
+                        <span>DANA</span>
+                    </div>
+                    <div class="dropdown-option" data-value="LinkAja">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/LinkAja.svg" alt="LinkAja">
+                        <span>LinkAja</span>
+                    </div>
+                </div>
+            </div>
+            <input type="text" id="amount" placeholder="Amount" required>
+            <button id="submitTransaction">Submit Transaction</button>
+        </div>
+        <div class="billing-history">
+            <h3>Billing History</h3>
+            <table id="transactionTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Time</th>
+                        <th>Method</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Notifications Section -->
+    <section id="notifications" class="section auth-required hidden">
+        <h2>Notifications</h2>
+        <div class="notifications-box">
+            <div class="notifications-container" id="notificationsList">
+                <!-- Notifications will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Login/Register Modal -->
+    <div id="authModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="auth-tabs">
+                <button id="tabLogin" class="auth-tab active">Login</button>
+                <button id="tabRegister" class="auth-tab">Register</button>
+            </div>
+            <span class="close">&times;</span>
+            <div id="loginSection">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+            <div id="registerSection" class="hidden">
+                <h2>Register</h2>
+                <form id="registerForm">
+                    <input type="text" id="registerUsername" placeholder="Username" required>
+                    <input type="email" id="registerEmail" placeholder="Email" required>
+                    <input type="password" id="registerPassword" placeholder="Password" required>
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer Start-->
+    <footer class="footer">
+        <div class="footer-content">
+            <span>© 2024 SecurePay. All rights reserved.</span>
+        </div>
+    </footer>
+    <!--Footer End-->
+    
+    <script src="script.js"></script>
+</body>
+</html>
